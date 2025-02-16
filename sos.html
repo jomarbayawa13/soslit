@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Envelope Animation</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f4f4f4;
+        }
+        .envelope {
+            position: relative;
+            width: 400px;
+            height: 200px;
+            background: #d35400;
+            border-radius: 10px;
+            cursor: pointer;
+            overflow: hidden;
+        }
+        .flap {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 80px;
+            background: #e67e22;
+            clip-path: polygon(10 10, 100% 0, 50% 100%);
+            transition: transform 0.5s;
+        }
+        .letter {
+            position: absolute;
+            bottom: 0px;
+            left: 50%;
+            width: 280px;
+            height: 300;
+            background: #fff;
+            transform: translateX(-50%) translateY(100%);
+            transition: transform 0.5s;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-family: Arial, sans-serif;
+            padding: 15px;
+            font-size: 13px;
+            border-radius: 10px;
+            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        .envelope.open .flap {
+            transform: rotateX(180deg);
+        }
+        .envelope.open .letter {
+            transform: translateX(-50%) translateY(-23px);
+        }
+    </style>
+</head>
+<body>
+    <div class="envelope" onclick="openEnvelope()">
+        <div class="flap"></div>
+        <div class="letter">Happy 19th Birthday babyy ko! ang wish ko lang sayo ay good health wag na masyado lumaklak ng softdrinks hahahaha MWAAAAA nandito lang ako palagi kapag kailangan mo ng tulong, kapag wala ka sa mood, kapag naiirita ka, kapag ayaw mo ako kausap. mahal na mahal kitaa baby koo, happy birthday uli!🩶💋</div>
+    </div>
+    
+    <script>
+        function openEnvelope() {
+            document.querySelector(".envelope").classList.toggle("open");
+        }
+    </script>
+</body>
+</html>
